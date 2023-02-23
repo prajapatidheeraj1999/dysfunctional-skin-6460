@@ -20,7 +20,8 @@ import {
 } from '@chakra-ui/react';
 // import {NavLink} from "react-router-dom"
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-import logo from "./image/Dilicius.jpg"
+import logo from "./image/finallogo.png"
+import {AiOutlineUser} from 'react-icons/ai'
 const Links = ['Dashboard', 'Projects', 'Team'];
 
 const NavLink = ({children}) => (
@@ -52,7 +53,7 @@ export default function Navbar() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={'center'}>
-            <Box><Image src={logo} width="50px" /></Box>
+            <Box><Image src={logo} width="120px" /></Box>
             <HStack
               as={'nav'}
               spacing={4}
@@ -70,12 +71,14 @@ export default function Navbar() {
                 variant={'link'}
                 cursor={'pointer'}
                 minW={0}>
-                <Avatar
+                {/* <Avatar
                   size={'sm'}
                   src={
                     'https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9'
                   }
-                />
+                /> */}
+                
+                <AiOutlineUser/>
               </MenuButton>
               <MenuList>
                 <MenuItem>Link 0</MenuItem>
@@ -98,7 +101,7 @@ export default function Navbar() {
         ) : null}
       </Box>
 
-      <Box p={4}>Main Content Here</Box>
+      
     </>
   );
 }
