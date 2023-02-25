@@ -61,7 +61,7 @@ export default function Navbar() {
         {isOpen ? (
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
-            <Text>DashBoards</Text>
+            <Text>DashBoard</Text>
             <Center>
             <BiCategory/> <span style={{marginLeft:"5px"}}> Categories </span> 
             </Center>
