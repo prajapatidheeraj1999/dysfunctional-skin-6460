@@ -265,6 +265,29 @@
       "email": "dheerajprajapatijnp@gmail.com",
       "password": "1234",
       "id": "3-VGj-V"
+    },
+    {
+      "email": "dheerajprajapatijnp@gmail.com",
+      "password": "1234",
+      "id": "AD0dOBB"
+    }
+  ],
+  "card": [
+    {
+      "id": 5,
+      "image": "https://dao54xqhg9jfa.cloudfront.net/OMS-ProductMerchantdising/2831d674-fd93-eec9-f638-5cf11c850d24/original/Lamb-Leg-(Boneless)-Hero-Shot_(1).jpg?format=webp",
+      "name": "Lamb Leg Boneless",
+      "discription": "Boneless pieces of Chicken in a creamy marinade.",
+      "wait": "500gms",
+      "price": "₹967"
+    },
+    {
+      "id": 3,
+      "image": "https://dao54xqhg9jfa.cloudfront.net/OMS-ProductMerchantdising/a917c576-c350-375a-afad-4882c7fd85a8/original/Classic-Eggs---Pack-of-12-Hero-Shot.jpg?format=webp",
+      "name": "Classic Eggs - Pack Of 12",
+      "discription": "White shell eggs laid by healthy hens.",
+      "wait": "Pieces: 12",
+      "price": "₹116"
     }
   ]
 }

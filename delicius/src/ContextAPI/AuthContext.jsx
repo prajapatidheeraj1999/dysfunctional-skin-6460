@@ -4,6 +4,7 @@ import {createContext,useState} from 'react'
 export let AuthContext=createContext()
 const AuthContextProvider = ({children}) => {
     let [isAuth,setisAuth]=useState(false)
+    let [count,setcount]=useState(0)
 
     let UserLogin=()=>{
 
@@ -13,7 +14,7 @@ const AuthContextProvider = ({children}) => {
         setisAuth(false)
     }
   return (
-    <AuthContext.Provider value={{isAuth,UserLogin,UserLogout}}>
+    <AuthContext.Provider value={{isAuth,UserLogin,UserLogout,setcount,count}}>
         {children}
     </AuthContext.Provider>
   )

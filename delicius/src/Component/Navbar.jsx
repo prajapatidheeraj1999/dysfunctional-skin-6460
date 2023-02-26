@@ -24,7 +24,8 @@ import { AuthContext } from '../ContextAPI/AuthContext';
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  let {isAuth,UserLogin,UserLogout}=useContext(AuthContext)
+  let {isAuth,UserLogin,UserLogout,setcount,count}=useContext(AuthContext)
+  console.log(count)
 
   return (
     < >
@@ -38,7 +39,7 @@ export default function Navbar() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={'center'}>
-            <Box><Image src={logo} width="120px" /></Box>
+            <Link to="/"><Box><Image src={logo} width="120px" /></Box></Link>
             <HStack
               as={'nav'}
               spacing={4}
@@ -46,7 +47,7 @@ export default function Navbar() {
               
                 <Text>DashBoards</Text>
                 <BiCategory/> <span>Categories</span>
-                < GrCart/> <span>Cart</span>
+                <Link to="/cart"><GrCart/></Link><sup>{count}</sup> <span>Cart</span>
               
             </HStack>
           </HStack>
@@ -57,7 +58,7 @@ export default function Navbar() {
             }
           </Flex>
         </Flex>
-
+           
         {isOpen ? (
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
