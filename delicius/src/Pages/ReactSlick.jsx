@@ -1,8 +1,8 @@
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-// import { useState,useEffect } from "react";
-// import axios from "axios";
+import axios from "axios";
+
 import { Box, Button, ButtonGroup, Card, CardBody, CardFooter, Center, Divider, Heading, Image, Stack, Text } from "@chakra-ui/react";
 const responsive = {
   superLargeDesktop: {
@@ -23,19 +23,19 @@ const responsive = {
     items: 1
   }
 };
-function Slider({data})
+function Slider({data,getcount})
 {
-  // let [data,setdata]=useState([])
-
-    // let getdata=()=>{
-    //     axios.get("http://localhost:8080/bestseler")
-    //     .then((res)=>setdata(res.data))
-    //     .catch((error)=>console.log(error))
-    // }
-
-    // useEffect(()=>{
-    //   getdata()
-    // },[])
+  let addtocart=(el)=>{
+    
+    axios({
+      method:"post",
+      url:" http://localhost:8080/card",
+      data:el
+    }).then((res)=>getcount())
+    
+//console.log(el)
+  }
+  
     return <Box width="80%" m={"auto"}>
       <Center></Center>
       <Carousel responsive={responsive} border="1px solid red">
@@ -57,7 +57,7 @@ function Slider({data})
         <Text color='red' fontSize='2xl' >
           {el.price}
         </Text>
-        <Button variant='solid' colorScheme='red'>
+        <Button variant='solid' colorScheme='red' onClick={()=>addtocart(el)}>
           Add to cart
         </Button>
         </Box>

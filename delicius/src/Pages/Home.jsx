@@ -8,12 +8,15 @@ import Slider from './ReactSlick'
 import LargeWithAppLinksAndSocial from './Footer'
 import frist from "../Component/image/image1.png"
 import second from "../Component/image/image2.png"
+import { AuthContext } from '../ContextAPI/AuthContext'
+import { useContext } from 'react'
 const Home = () => {
 
 let [categori,setCategori]=useState([])
 let [best,setbest]=useState([])
 let [bone,setBone]=useState([])
 let [breaks,setbreak]=useState([])
+let {isAuth,UserLogin,UserLogout,setcount,count}=useContext(AuthContext)
 
 let getcategoriesdata=()=>{
 axios.get("http://localhost:8080/categories")
@@ -39,7 +42,15 @@ let breakfast=()=>{
         boneless()
         bestSeler()
         breakfast()
+        getcount()
     },[])
+
+    let getcount=()=>{
+      axios({
+        method:"get",
+        url:"http://localhost:8080/card"
+      }).then((res)=>setcount((res.data).length))
+    }
   
     console.log(categori)
     console.log("best"+best)
@@ -64,9 +75,9 @@ let breakfast=()=>{
          </Container>
          <Heading as="h1" mt={20} mb={10}>Best Sellers</Heading>
         
-         <Slider data={best}/>
+         <Slider data={best} getcount={getcount}/>
          <Heading as="h1" mt={10} mb={10}>Bone Less</Heading>
-         <Slider data={bone}/>
+         <Slider data={bone} getcount={getcount}/>
          <Container maxW='80%' mt={10}>
         <Heading as='h3' size='lg' mb={20} >
         Shop by categories     
@@ -83,7 +94,7 @@ let breakfast=()=>{
        </SimpleGrid>
          </Container>
          <Heading as="h1" mt={10} mb={10}>Breakfast & Snacking Specials</Heading>
-         <Slider data={breaks}/>
+         <Slider data={breaks} getcount={getcount}/>
          <Image src={frist  }/>
          <Image src={second  }/>
          <LargeWithAppLinksAndSocial/>
